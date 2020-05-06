@@ -1,0 +1,27 @@
+## Logging
+logging:
+  level:
+    org.springframework: INFO
+    com.mkyong: INFO
+    com.zaxxer: DEBUG
+    root: ERROR
+    info.nieling.firma: INFO
+  pattern:
+    console: "%-5level %logger{36} - %msg%n"
+
+## spring postgres configuration
+spring:
+  datasource:
+    ## default connection pool
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    ## PostgreSQL
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/firma"
+    username: postgres
+    password: postgres
+    #drop n create table again, good for testing, comment this in production
+    jpa:
+      hibernate.ddl-auto: create
+      show-sql: true

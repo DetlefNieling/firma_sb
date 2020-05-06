@@ -1,9 +1,11 @@
 package info.nieling.firma;
 
+import info.nieling.firma.model.Book;
 import info.nieling.firma.repository.BookRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -11,19 +13,19 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 @EnableJpaAuditing
 public
-class FirmaApplication { // implements CommandLineRunner {
+class FirmaApplication implements CommandLineRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(FirmaApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(FirmaApplication.class);
 
-    @Autowired
-    private BookRepository repository;
+	@Autowired
+	private BookRepository repository;
 
-    public static
-    void main ( String[] args ) {
-        SpringApplication.run(FirmaApplication.class, args);
-    }
+	public static
+	void main ( String[] args ) {
+		SpringApplication.run(FirmaApplication.class, args);
+	}
 
-/*	@Override
+	@Override
 	public
 	void run ( String... args ) {
 
@@ -42,6 +44,6 @@ class FirmaApplication { // implements CommandLineRunner {
 		log.info("\nfindByName('Node')");
 		repository.findByName("Node").forEach(x -> log.info(String.valueOf(x)));
 
-	}*/
+	}
 
 }
