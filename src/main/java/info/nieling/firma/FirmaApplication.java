@@ -5,6 +5,7 @@ import info.nieling.firma.repository.BookRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,9 @@ public
 class FirmaApplication implements CommandLineRunner {
 
 	private static final Logger log = LoggerFactory.getLogger(FirmaApplication.class);
+
+	@Value("${application.version}")
+	private String appVersion;
 
 	@Autowired
 	private BookRepository repository;
@@ -29,7 +33,7 @@ class FirmaApplication implements CommandLineRunner {
 	public
 	void run ( String... args ) {
 
-		log.info("StartApplication...");
+		log.info("StartApplication... " + appVersion);
 
 		repository.save(new Book("Java"));
 		repository.save(new Book("Node"));

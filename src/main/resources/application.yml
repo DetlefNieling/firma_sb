@@ -25,3 +25,8 @@ spring:
     jpa:
       hibernate.ddl-auto: create
       show-sql: true
+
+## maven build variables
+application:
+  description: ^project.description^
+  version: ^project.version^
